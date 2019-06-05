@@ -301,14 +301,20 @@ void AudioOutputI2S::update(void)
 //
 #if F_CPU == 96000000 || F_CPU == 48000000 || F_CPU == 24000000
   // PLL is at 96 MHz in these modes
-  #define MCLK_MULT 2
-  #define MCLK_DIV  17
+  //#define MCLK_MULT 2
+  //#define MCLK_DIV  17
+  // leesy: for 48KHz
+  #define MCLK_MULT 16
+  #define MCLK_DIV  125
 #elif F_CPU == 72000000
   #define MCLK_MULT 8
   #define MCLK_DIV  51
 #elif F_CPU == 120000000
-  #define MCLK_MULT 8
-  #define MCLK_DIV  85
+  //#define MCLK_MULT 8
+  //#define MCLK_DIV  85
+  // leesy: for 48KHz
+  #define MCLK_MULT 64
+  #define MCLK_DIV  625
 #elif F_CPU == 144000000
   #define MCLK_MULT 4
   #define MCLK_DIV  51
